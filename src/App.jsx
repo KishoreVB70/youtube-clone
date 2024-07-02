@@ -7,9 +7,8 @@ import Body from "./components/Body";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <DefaultSideBar />
-      <Body />
+      <div className='w-10 h-36 bg-purple-800' >
+      </div>
     </div>
   );
 }
