@@ -1,9 +1,11 @@
 import React from 'react'
 import SideBarList from './SideBarList'
 
-function SideBar({items}) {
+const items = [1,2,3];
+
+function SideBar() {
   return (
-    <div>
+    <div className='border border-black h-full w-2/12' >
         {items.map(itm => <SideBarList />)}
     </div>
   )

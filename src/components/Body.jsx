@@ -7,7 +7,8 @@ import DefaultSideBar from './DefaultSideBar'
 const Body = () => {
   return (
     <div className='flex flex-row w-full h-screen' >
-      <DefaultSideBar />
+      {/* <DefaultSideBar /> */}
+      <SideBar />
       <div className='flex flex-col w-full h-full mx-2' >
           <SuggestionsButtonList />
           <VideoCardsContainer />
