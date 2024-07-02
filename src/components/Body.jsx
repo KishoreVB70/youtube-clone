@@ -11,4 +11,4 @@ const Body = () => {
   )
 }
 
-export default Bodyfce
+export default Body
