@@ -1,5 +1,5 @@
 import React from 'react'
-import SuggestionCardContainer from './SuggestionCardContainer'
+import SuggestionsButtonList from './SuggestionsButtonList'
 import VideoCardsContainer from './VideoCardsContainer'
 import SideBar from './SideBar'
 
@@ -8,7 +8,7 @@ const Body = () => {
     <div className='flex flex-row' >
         <SideBar />
         <div className='flex flex-col' >
-            <SuggestionCardContainer />
+            <SuggestionsButtonList />
             <VideoCardsContainer />
         </div>
     </div>

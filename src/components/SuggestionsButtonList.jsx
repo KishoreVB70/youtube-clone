@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SuggestionCardContainer({cards}) {
+function SuggestionsButtonList({cards}) {
   return (
     <div className='flex flex-row' >
         {cards.map(itm => <button> itm.name </button>)}
@@ -8,4 +8,4 @@ function SuggestionCardContainer({cards}) {
   )
 }
 
-export default SuggestionCardContainer
+export default SuggestionsButtonList
