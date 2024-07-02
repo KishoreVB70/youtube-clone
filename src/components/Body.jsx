@@ -5,10 +5,12 @@ import SideBar from './SideBar'
 
 const Body = () => {
   return (
-    <div>
-        <SuggestionCardContainer />
+    <div className='flex flex-row' >
         <SideBar />
-        <VideoCardsContainer />
+        <div className='flex flex-col' >
+            <SuggestionCardContainer />
+            <VideoCardsContainer />
+        </div>
     </div>
   )
 }
