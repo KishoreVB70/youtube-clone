@@ -2,7 +2,7 @@ import React from 'react'
 
 const SuggestedVideos = () => {
   return (
-    <div  className='w-full h-16 flex flex-row' >
+    <div  className='w-2/6 h-16 flex flex-row' >
         <img src="" alt="" />
         <div className='flex flex-col' >
             <h1>Title</h1>
