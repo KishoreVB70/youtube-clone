@@ -14,7 +14,7 @@ const popularVideoSlice = createSlice({
             state.popularVideos = action.payload;
         },  
         setFilteredPopularVideo: (state, action) => {
-            state.popularVideos.push(action.payload)
+            state.filteredPopularVideos = action.payload;
         } 
     },
 })

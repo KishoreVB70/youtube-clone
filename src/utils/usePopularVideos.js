@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { YOUTUBE_POPULAR_VIDEOS_API, YOUTUBE_CHANNEL_BASE_API } from '../utils/constants';
+import { useDispatch } from 'react-redux'
+import { setPopularVideo, setFilteredPopularVideo } from '../redux/popularVideoSlice';
 
 const usePopularVideos = () => {
     const [videoData, setVideoData] = useState([]);
 
     const getVideos = async() => {
-      const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+        const dispatch = useDispatch();
+
+        console.log("usePopular hook caled");
+        const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
         // Obtaining video data
         const _data = await fetch(YOUTUBE_POPULAR_VIDEOS_API);
@@ -33,10 +38,11 @@ const usePopularVideos = () => {
         })
         console.log(neo_items);
         setVideoData(neo_items);
+        dispatch(setPopularVideo(videoData));
     }
 
     useEffect(() => {
-    getVideos();
+        getVideos();
     },[])
 
     return videoData;

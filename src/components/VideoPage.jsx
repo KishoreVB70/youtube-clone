@@ -7,7 +7,7 @@ import VideoDescription from './VideoDescription'
 
 const VideoPage = () => {
     const [searchParam] = useSearchParams();
-    const [videoData, setVideoData] = useState([])
+    const [videoData, setVideoData] = useState(null)
 
     const videoId = searchParam.get("v");
     const videoSrc = `https://www.youtube.com/embed/${videoId}`
@@ -41,7 +41,7 @@ const VideoPage = () => {
             </iframe>
         </div>
         <div  className='flex m-2 px-3 flex-row h-1/6 w-full' >
-            <VideoDescription data={videoData} />
+            {videoData && <VideoDescription data={videoData} />}
             {/* <SuggestedVideos /> */}
         </div>
     </div>

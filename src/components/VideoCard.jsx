@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const VideoCard = ({data}) => {
+  console.log("Video card");
+  console.log(data);
   const {snippet, statistics, channelThumb} = data;
   const {publishedAt, channelTitle, title, thumbnails} = snippet
   const {viewCount} = statistics
