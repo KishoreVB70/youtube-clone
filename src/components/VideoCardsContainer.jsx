@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import VideoCard from './VideoCard'
-import usePopularVideos from '../utils/usePopularVideos';
+import { useSelector} from 'react-redux';
 
-const VideoCardsContainer = () => {
-  const videoData = usePopularVideos();
+
+const VideoCardsContainer = () => { 
+  const popularVideos = useSelector((store => store.popularVideoSlice.popularVideos))
+  const filteredVideos = useSelector((store => store.popularVideoSlice.FilteredPopularVideo))
+
+  // IN the first time, set it
+  // filteredVideos.length===0 && dispatchFunction(setFilteredPopularVideo(videoData));
 
   return (
     <div className='flex flex-row flex-wrap justify-around w-full mt-2 h-full' >
-        {videoData.map((itm) => {
+        {popularVideos.map((itm) => {
           return (
             <VideoCard  key={itm.id} data={itm} />
           )

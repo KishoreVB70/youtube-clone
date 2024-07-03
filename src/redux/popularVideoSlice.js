@@ -10,8 +10,12 @@ const popularVideoSlice = createSlice({
     },
 
     reducers: {
-        setPopularVideo: (state, action) => state.popularVideos.push(action.payload),
-        setFilteredPopularVideo: (state, action) => state.popularVideos.push(action.payload)
+        setPopularVideo: (state, action) => {
+            state.popularVideos = action.payload;
+        },  
+        setFilteredPopularVideo: (state, action) => {
+            state.popularVideos.push(action.payload)
+        } 
     },
 })
 

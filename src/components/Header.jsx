@@ -1,11 +1,24 @@
-import { useContext} from "react";
+import { useContext, useState} from "react";
 import { SideBarContext } from "../utils/SidebarContext";
 import { Link } from "react-router-dom";
+import { setFilteredPopularVideo } from "../redux/popularVideoSlice";
+import { useSelector } from "react-redux";
+
 
 const Header = () => {
+    const [searchInput, setSearchInput] = useState();
     const {sideBarState, setSidebarState} = useContext(SideBarContext);
+    const popularVideo = useSelector(store => store.popularVideoSlice.popularVideos);
+
+    console.log(popularVideo);
+    
+
     const sidebarToggle = () => {
         setSidebarState(state => !state);
+    }
+
+    const search = () => {
+
     }
 
     return (
@@ -17,8 +30,8 @@ const Header = () => {
                 </Link>
             </div> 
             <div className="flex flex-row w-full h-full ml-2 justify-center items-center" >
-                <input type="text" placeholder="Search" className="border-2 pb-1 pl-6 items-center flex justify-center text-xl my-auto w-5/12 h-full rounded-l-full border-gray-300" />
-                <button className="p-2 rounded-r-full h-full hover:bg-gray-200 bg-gray-100 border-r-2 border-y-2 border-left-0 border-gray-300" >Search</button>
+                <input value={searchInput} onChange={(e => setSearchInput(e.target.value))} type="text"  placeholder="Search" className="border-2 pb-1 pl-6 items-center flex justify-center text-xl my-auto w-5/12 h-full rounded-l-full border-gray-300" />
+                <button onClick={search} className="p-2 rounded-r-full h-full hover:bg-gray-200 bg-gray-100 border-r-2 border-y-2 border-left-0 border-gray-300" >Search</button>
                 <div className="w-11 h-12 ml-4 rounded-full bg-gray-100 flex items-center justify-center" >
                     <img className=" w-7 h-7 hover:cursor-pointer" src="https://www.iconpacks.net/icons/1/free-microphone-icon-342-thumb.png" alt="voice search" />
                 </div>
