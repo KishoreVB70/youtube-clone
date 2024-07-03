@@ -9,7 +9,6 @@ const usePopularVideos = () => {
     const getVideos = async() => {
         const dispatch = useDispatch();
 
-        console.log("usePopular hook caled");
         const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
 
         // Obtaining video data
@@ -36,7 +35,6 @@ const usePopularVideos = () => {
           i["channelThumb"] = match[0].snippet.thumbnails;
           return i;
         })
-        console.log(neo_items);
         setVideoData(neo_items);
         dispatch(setPopularVideo(videoData));
     }

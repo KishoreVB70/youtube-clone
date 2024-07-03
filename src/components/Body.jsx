@@ -19,7 +19,6 @@ import { useDispatch } from 'react-redux'
 
 const Body = () => {
   const {sideBarState} = useContext(SideBarContext);
-  console.log("Body re rendered");
 
   // Redux
   const dispatch = useDispatch();

@@ -9,26 +9,19 @@ const Header = () => {
     const [searchInput, setSearchInput] = useState("");
     const {sideBarState, setSidebarState} = useContext(SideBarContext);
     const popularVideo = useSelector(store => store.popularVideoSlice.popularVideos); 
-    console.log("popular vid");
-    console.log(popularVideo)
     const dispatch = useDispatch();
-    console.log("header re rendered");
 
     const sidebarToggle = () => {
         setSidebarState(state => !state);
     }
 
     const search = () => {
-        console.log(popularVideo)
         const schInp = searchInput.toUpperCase();
         const filterResults = popularVideo.filter(i => {
             let title = i.snippet.title.toUpperCase();
             return(title.includes(schInp));
         })
-        console.log(filterResults)
         dispatch(setFilteredPopularVideo(filterResults));
-        console.log("popular videos")
-        console.log(popularVideo);
     }
 
     return (
