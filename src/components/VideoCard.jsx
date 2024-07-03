@@ -1,9 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const VideoCard = ({item}) => {
   return (
-    <div className='flex flex-col w-1/4 p-2 h-2/' >      
-        <img  className='hover:cursor-pointer w-full h-2/3 bg-gray-100 rounded-2xl' src="https://i.redd.it/0eekhqw63anz.png" alt="video-card" />
+    <div className='flex flex-col w-1/4 p-2 h-2/5' > 
+        <Link className="h-full" to={"/video"} >
+          <img className='hover:cursor-pointer w-full h-full bg-gray-100 rounded-2xl' src="https://i.redd.it/0eekhqw63anz.png" alt="video-card" />
+        </Link>     
         <div className='flex flex-row w-full mt-4' >
           <img className="hover:cursor-pointer w-12 h-12 rounded-full" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt9fkj_i7VDqocOrfLYaI7ZzQIZOKYr5aSPA&s" alt="channel-icon" />
           <div className='flex flex-col ml-2 w-4/5' >
