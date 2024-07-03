@@ -1,13 +1,19 @@
+//Hooks
 import { useContext, useState} from "react";
 import { SideBarContext } from "../utils/SidebarContext";
 import { Link } from "react-router-dom";
-import { setFilteredPopularVideo, setPopularVideo } from "../redux/popularVideoSlice";
+import { setFilteredPopularVideo} from "../redux/popularVideoSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 
 const Header = () => {
+    // State
     const [searchInput, setSearchInput] = useState("");
-    const {sideBarState, setSidebarState} = useContext(SideBarContext);
+
+    // Context
+    const {setSidebarState} = useContext(SideBarContext);
+
+    // Redux
     const popularVideo = useSelector(store => store.popularVideoSlice.popularVideos); 
     const dispatch = useDispatch();
 

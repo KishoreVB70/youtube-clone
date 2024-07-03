@@ -7,9 +7,9 @@ import SideBar from './SideBar'
 import SuggestionsButtonList from './SuggestionsButtonList'
 import VideoCardsContainer from './VideoCardsContainer'
 
-import { YOUTUBE_POPULAR_VIDEOS_API, YOUTUBE_CHANNEL_BASE_API } from '../utils/constants';
 
 //Utils
+import { YOUTUBE_POPULAR_VIDEOS_API, YOUTUBE_CHANNEL_BASE_API } from '../utils/constants';
 import { SideBarContext } from '../utils/SidebarContext'
 
 //redux
