@@ -1,11 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const VideoCard = ({data, channelData}) => {
+const VideoCard = ({data}) => {
   const {snippet, statistics, channelThumb} = data;
   const {publishedAt, channelTitle, title, thumbnails} = snippet
   const {viewCount} = statistics
-  // const channelThumbnail = channelData.snippet.thumbnails.high;
 
   let viewString;
   if(viewCount < 1000000) {
