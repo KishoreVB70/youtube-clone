@@ -53,7 +53,7 @@ const VideoCard = ({data}) => {
           <img className='hover:cursor-pointer w-full h-full bg-gray-100 rounded-2xl' src={thumbnails?.maxres?.url?thumbnails?.maxres?.url:thumbnails.standard.url } alt="video-card" />
         </Link>     
         <div className='flex flex-row w-full mt-4' >
-          <img className="hover:cursor-pointer w-12 h-12 rounded-full" src={channelThumb.high.url} alt="channel-icon" />
+          <img className="hover:cursor-pointer w-12 h-12 rounded-full" src={channelThumb.medium.url} alt="channel-icon" />
           <div className='flex flex-col ml-2 w-4/5' >
               <h1 className='font-semibold text-lg' >{title}</h1>
               <h4>{channelTitle}</h4>
