@@ -49,7 +49,7 @@ const VideoCard = ({data}) => {
 
   return (
     <div className='flex flex-col w-1/4 p-2 h-3/6' > 
-        <Link className="h-3/5" to={"/video"} >
+        <Link className="h-3/5" to={"/watch?v="+data.id} >
           <img className='hover:cursor-pointer w-full h-full bg-gray-100 rounded-2xl' src={thumbnails?.maxres?.url?thumbnails?.maxres?.url:thumbnails.standard.url } alt="video-card" />
         </Link>     
         <div className='flex flex-row w-full mt-4' >

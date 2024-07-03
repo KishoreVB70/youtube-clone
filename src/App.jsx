@@ -30,7 +30,7 @@ export const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/video",
+        path: "/watch",
         element: <VideoPage />
       }
     ]
