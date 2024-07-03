@@ -1,7 +1,20 @@
-import {createSlice} from "redux-toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 
-const popularVideoSlice = () => {
 
-}
+const popularVideoSlice = createSlice({
+    name: "popularVideoSlice",
 
-export default popularVideoSlice
+    initialState: {
+        popularVideos: [],
+        filteredPopularVideos: []
+    },
+
+    reducers: {
+        setPopularVideo: (state, action) => state.popularVideos.push(action.payload),
+        setFilteredPopularVideo: (state, action) => state.popularVideos.push(action.payload)
+    },
+})
+
+export const {setPopularVideo, setFilteredPopularVideo} = popularVideoSlice.actions;
+
+export default popularVideoSlice.reducer;
