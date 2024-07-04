@@ -6,7 +6,7 @@ function DefaultSideBar() {
 const items = [1,2,3,4,5,6]
 
   return (
-    <div className=' flex flex-col w-20 mt-2  items-center h-full' >
+    <div className=' flex flex-col fixed w-20 mt-16 h-screen  items-center' >
         {items.map((itm, ind)=> {
           return (
             <Link key={ind} to="/" className='w-full ml-1' >
