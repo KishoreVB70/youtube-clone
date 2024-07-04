@@ -42,19 +42,21 @@ const Header = () => {
     }
 
     const fetchSearchSuggestions = async() => {
-        if (searchInput.length > 0){
-            const _data = await fetch(YOUTUBE_SEARCH_SUGGESTIONS_API+searchInput);
-            const data = await _data.json();
-            setSearchSuggestion(data[1]);
-            console.log(data[1]);
-            const object = {
-                [data[0]]: data[1],
-            }
-            dispatch(addToSearch(object));
+        const _data = await fetch(YOUTUBE_SEARCH_SUGGESTIONS_API+searchInput);
+        const data = await _data.json();
+        setSearchSuggestion(data[1]);
+        console.log(data[1]);
+        const object = {
+            [data[0]]: data[1],
         }
+        dispatch(addToSearch(object));
     }
 
     useEffect(() => {
+        if(searchInput.length === 0) {
+            return;
+        }
+
         if (searchResultsRedux[searchInput]) {
             setSearchSuggestion(searchResultsRedux[searchInput]);
         } else {
