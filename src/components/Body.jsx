@@ -1,5 +1,5 @@
 // hooks
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 
 //Components
 import DefaultSideBar from './DefaultSideBar'
@@ -19,7 +19,7 @@ import { useDispatch } from 'react-redux'
 
 const Body = () => {
   const {sideBarState} = useContext(SideBarContext);
-
+  
   // Redux
   const dispatch = useDispatch();
 

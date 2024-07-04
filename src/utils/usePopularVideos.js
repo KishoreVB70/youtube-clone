@@ -6,10 +6,9 @@ import { setPopularVideo, setFilteredPopularVideo } from '../redux/popularVideoS
 const usePopularVideos = () => {
     const [videoData, setVideoData] = useState([]);
     const popularVideos = useSelector(store => store.popularVideoSlice.popularVideos);
+    console.log("Popular videos called");
     const dispatch = useDispatch();
     const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
-
-
 
     if(videoData.length > 0 && popularVideos.length === 0) {
         dispatch(setPopularVideo(videoData));
@@ -41,7 +40,7 @@ const usePopularVideos = () => {
           i["channelThumb"] = match[0].snippet.thumbnails;
           return i;
         })
-        console.log(videoData);
+        console.log(neo_items);
         setVideoData(neo_items);
     }
 
