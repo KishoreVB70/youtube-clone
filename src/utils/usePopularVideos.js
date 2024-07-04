@@ -5,15 +5,11 @@ import { setPopularVideo, setFilteredPopularVideo } from '../redux/popularVideoS
 
 const usePopularVideos = () => {
     const [videoData, setVideoData] = useState([]);
-    const popularVideos = useSelector(store => store.popularVideoSlice.popularVideos);
     console.log("Popular videos called");
     const dispatch = useDispatch();
     const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+    const popularVideos = useSelector(store => store.popularVideoSlice.popularVideos);
 
-    if(videoData.length > 0 && popularVideos.length === 0) {
-        dispatch(setPopularVideo(videoData));
-        dispatch(setFilteredPopularVideo(videoData))
-    }
 
     const getVideos = async() => {
         // Obtaining video data
@@ -47,6 +43,15 @@ const usePopularVideos = () => {
     useEffect(() => {
         getVideos();
     },[])
+
+    useEffect(() => {
+        console.log("Popular videos inside custom hook use effect called");
+
+        if(videoData.length > 0 && popularVideos.length === 0) {
+            dispatch(setPopularVideo(videoData));
+            dispatch(setFilteredPopularVideo(videoData))
+        }
+    },[videoData])
 }
 
 export default usePopularVideos;
