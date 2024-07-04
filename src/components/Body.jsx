@@ -64,7 +64,7 @@ const Body = () => {
   return (
     <div className='flex flex-row w-full h-full' >
         {sideBarState?<SideBar />:<DefaultSideBar />}
-      <div className='flex flex-col ml-24 w-full mt-16 h-full mx-2 ' >
+      <div className='flex flex-col ml-24 w-full mt-14 h-full mx-2 ' >
           <h1>{sideBarState}</h1>
           <SuggestionsButtonList />
           <VideoCardsContainer />
