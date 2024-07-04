@@ -16,7 +16,7 @@ import { setFilteredPopularVideo} from "../redux/popularVideoSlice";
 const Header = () => {
     // State
     const [searchInput, setSearchInput] = useState("");
-    const [searchSuggestion, setSearchSuggestion] = useState("");
+    const [searchSuggestion, setSearchSuggestion] = useState([]);
 
     // Context
     const {setSidebarState} = useContext(SideBarContext);
@@ -42,6 +42,7 @@ const Header = () => {
         const _data = await fetch(YOUTUBE_SEARCH_SUGGESTIONS_API+searchInput);
         const data = await _data.json();
         console.log(data[1]);
+        setSearchSuggestion(data[1]);
     }
 
     useEffect(() => {
@@ -59,7 +60,19 @@ const Header = () => {
                 </Link>
             </div> 
             <div className="flex flex-row w-full h-full ml-2 justify-center items-center" >
-                <input value={searchInput} onChange={(e => setSearchInput(e.target.value))} type="text"  placeholder="Search" className="border-2 pb-1 pl-6 items-center flex justify-center text-xl my-auto w-5/12 h-full rounded-l-full border-gray-300" />
+                <div className="relative w-5/12 h-full" >
+                    <input value={searchInput} onChange={(e => setSearchInput(e.target.value))} type="text"  placeholder="Search" className="focus:border-blue-500 focus:outline-none border-2 pb-1 pl-6 items-center flex justify-center text-xl my-auto w-full h-full rounded-l-full border-gray-300" />
+                    {searchInput.length > 0 && searchSuggestion.length > 0 &&(
+                        <div className="absolute w-full top-full left-0 mt-2  bg-white rounded-lg shadow-2xl border-x border-gray-500" >
+                            {searchSuggestion.map((it, i) => (
+                                <div key={i} className="flex  items-center p-3 pl-5 w-full h-9 hover:bg-gray-200 hover:cursor-pointer" >
+                                    <img className="w-4 mr-5 h-4" src="https://www.iconpacks.net/icons/2/free-icon-search-2903.png" alt="search-icon" />
+                                    <p className="font-semibold" >{it}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
                 <button onClick={localSearch} className="p-2 rounded-r-full h-full hover:bg-gray-200 bg-gray-100 border-r-2 border-y-2 border-left-0 border-gray-300" >Search</button>
                 <div className="w-11 h-12 ml-4 rounded-full bg-gray-100 flex items-center justify-center" >
                     <img className=" w-7 h-7 hover:cursor-pointer" src="https://www.iconpacks.net/icons/1/free-microphone-icon-342-thumb.png" alt="voice search" />
