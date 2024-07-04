@@ -17,6 +17,7 @@ const Header = () => {
     // State
     const [searchInput, setSearchInput] = useState("");
     const [searchSuggestion, setSearchSuggestion] = useState([]);
+    const [inputFocus, setInputFocus] = useState(false);
 
     // Context
     const {setSidebarState} = useContext(SideBarContext);
@@ -61,9 +62,9 @@ const Header = () => {
             </div> 
             <div className="flex flex-row w-full h-full ml-2 justify-center items-center" >
                 <div className="relative w-5/12 h-full" >
-                    <input value={searchInput} onChange={(e => setSearchInput(e.target.value))} type="text"  placeholder="Search" className="focus:border-blue-500 focus:outline-none border-2 pb-1 pl-6 items-center flex justify-center text-xl my-auto w-full h-full rounded-l-full border-gray-300" />
-                    {searchInput.length > 0 && searchSuggestion.length > 0 &&(
-                        <div className="absolute w-full top-full left-0 mt-2  bg-white rounded-lg shadow-2xl border-x border-gray-500" >
+                    <input value={searchInput} onFocus={() => setInputFocus(true)} onBlur={() => setInputFocus(false)} onChange={(e => setSearchInput(e.target.value))} type="text"  placeholder="Search" className="focus:border-blue-500 focus:outline-none border-2 pb-1 pl-6 items-center flex justify-center text-xl my-auto w-full h-full rounded-l-full border-gray-300" />
+                    {searchInput.length > 0 && searchSuggestion.length > 0 && inputFocus &&(
+                        <div className="absolute w-full top-full left-0 mt-2 z-50 bg-white rounded-lg shadow-2xl border-x border-gray-500" >
                             {searchSuggestion.map((it, i) => (
                                 <div key={i} className="flex  items-center p-3 pl-5 w-full h-9 hover:bg-gray-200 hover:cursor-pointer" >
                                     <img className="w-4 mr-5 h-4" src="https://www.iconpacks.net/icons/2/free-icon-search-2903.png" alt="search-icon" />
