@@ -27,7 +27,6 @@ const Header = () => {
     const popularVideo = useSelector(store => store.popularVideoSlice.popularVideos); 
     const searchResultsRedux = useSelector(store => store.searchSlice.searchResults);
     const dispatch = useDispatch();
-    console.log(searchResultsRedux);
 
     const sidebarToggle = () => {
         setSidebarState(state => !state);
@@ -72,7 +71,7 @@ const Header = () => {
     }, [searchInput])
 
     return (
-        <div className="flex flex-row justify-between h-16 fixed w-full bg-white px-2 py-2 pl-3 items-center">
+        <div className="z-50 flex flex-row justify-between h-16 fixed w-full bg-white px-2 py-2 pl-3 items-center ">
             <div className="flex flex-row w-2/12 items-center h-full" >
                 <img alt="Sidebar-icon" onClick={sidebarToggle} className="hover:cursor-pointer w-6 h-3/4 mx-2 " src="https://imgs.search.brave.com/jJtUaMpEKfzsgb9_JVG05f3X5hXfFyvi0yqwa4NFtQ8/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pY29u/cy52ZXJ5aWNvbi5j/b20vcG5nL28vbWlz/Y2VsbGFuZW91cy9i/aWctZGF0YS1yZWd1/bGFyLW1vbm9jaHJv/bWUtaWNvbi9zaWRl/YmFyLTQucG5n"/>
                 <Link className="h-full" to={"/"} onClick={(() => dispatch(setFilteredPopularVideo(popularVideo)))} >
