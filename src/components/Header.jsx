@@ -45,7 +45,6 @@ const Header = () => {
         const _data = await fetch(YOUTUBE_SEARCH_SUGGESTIONS_API+searchInput);
         const data = await _data.json();
         setSearchSuggestion(data[1]);
-        console.log(data[1]);
         const object = {
             [data[0]]: data[1],
         }
