@@ -63,12 +63,27 @@ const Body = () => {
 
   return (
     <div className='flex flex-row w-full h-full' >
-        {sideBarState?<SideBar />:<DefaultSideBar />}
-      <div className='flex flex-col ml-24 w-full mt-14 h-full mx-2 ' >
-          <h1>{sideBarState}</h1>
-          <SuggestionsButtonList />
-          <VideoCardsContainer />
-      </div>
+      {sideBarState
+        ?(
+          <>
+            <SideBar />
+            <div className='flex flex-col ml-64 w-full mt-14 h-full mx-2 ' >
+              <h1>{sideBarState}</h1>
+              <SuggestionsButtonList />
+              <VideoCardsContainer />
+            </div>
+          </>
+        )
+        : (
+          <>
+          <DefaultSideBar />
+          <div className='flex flex-col ml-24 w-full mt-14 h-full mx-2 ' >
+              <h1>{sideBarState}</h1>
+              <SuggestionsButtonList />
+              <VideoCardsContainer />
+          </div>
+          </>
+        )}
     </div>
   )
 }
