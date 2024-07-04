@@ -1,5 +1,5 @@
 // hooks
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect} from 'react'
 
 //Components
 import DefaultSideBar from './DefaultSideBar'
@@ -10,12 +10,12 @@ import usePopularVideos from '../utils/usePopularVideos'
 
 
 //Utils
-import { YOUTUBE_POPULAR_VIDEOS_API, YOUTUBE_CHANNEL_BASE_API } from '../utils/constants';
+// import { YOUTUBE_POPULAR_VIDEOS_API, YOUTUBE_CHANNEL_BASE_API } from '../utils/constants';
 import { SideBarContext } from '../utils/SidebarContext'
 
 //redux
-import { setPopularVideo, setFilteredPopularVideo } from '../redux/popularVideoSlice';
-import { useDispatch } from 'react-redux'
+// import { setPopularVideo, setFilteredPopularVideo } from '../redux/popularVideoSlice';
+// import { useDispatch } from 'react-redux'
 
 
 const Body = () => {
