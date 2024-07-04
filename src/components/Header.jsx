@@ -11,6 +11,7 @@ import { SideBarContext } from "../utils/SidebarContext";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { setFilteredPopularVideo} from "../redux/popularVideoSlice";
+import { addToSearch } from "../redux/searchSlice";
 
 
 const Header = () => {
@@ -24,7 +25,9 @@ const Header = () => {
 
     // Redux
     const popularVideo = useSelector(store => store.popularVideoSlice.popularVideos); 
+    const searchResultsRedux = useSelector(store => store.searchSlice.searchResults);
     const dispatch = useDispatch();
+    console.log(searchResultsRedux);
 
     const sidebarToggle = () => {
         setSidebarState(state => !state);
@@ -40,16 +43,32 @@ const Header = () => {
     }
 
     const fetchSearchSuggestions = async() => {
-        const _data = await fetch(YOUTUBE_SEARCH_SUGGESTIONS_API+searchInput);
-        const data = await _data.json();
-        console.log(data[1]);
-        setSearchSuggestion(data[1]);
+        if (searchInput.length > 0){
+            const _data = await fetch(YOUTUBE_SEARCH_SUGGESTIONS_API+searchInput);
+            const data = await _data.json();
+            setSearchSuggestion(data[1]);
+            console.log(data[1]);
+            dispatch(addToSearch(data.slice(0,2)));
+        }
     }
 
     useEffect(() => {
-        const timer = setTimeout(() => {fetchSearchSuggestions()}, 200);
+        let toSearch = true;
+        let index = null;
+        searchResultsRedux.forEach((e, i) =>{
+            if(e[0] === searchInput) {
+                toSearch = false
+                index = i
+            }
+        })
 
-        return (() => {clearTimeout(timer)});
+        if (toSearch) {
+            const timer = setTimeout(() => {fetchSearchSuggestions()}, 200);
+            return (() => {clearTimeout(timer)});
+        } else {
+            console.log(searchResultsRedux[index][1]);  
+            setSearchSuggestion(searchResultsRedux[index][1]);
+        }
     }, [searchInput])
 
     return (
