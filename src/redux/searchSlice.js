@@ -3,11 +3,14 @@ import { createSlice } from "@reduxjs/toolkit";
 const searchSlice = createSlice({
     name: "searchSlice",
     initialState: {
-        searchResults: []
+        searchResults: {
+            
+        }
     },
     reducers: {
         "addToSearch": (state, action) => {
-            state.searchResults.push(action.payload);
+            state.searchResults = { ...state, ...action.payload};
+            state.searchResults = Object.assign(state.searchResults, action.payload);
         },
 
         "clearSearchCache": (state) => {

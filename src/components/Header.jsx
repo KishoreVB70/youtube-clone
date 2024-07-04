@@ -47,26 +47,19 @@ const Header = () => {
             const data = await _data.json();
             setSearchSuggestion(data[1]);
             console.log(data[1]);
-            dispatch(addToSearch(data.slice(0,2)));
+            const object = {
+                [data[0]]: data[1],
+            }
+            dispatch(addToSearch(object));
         }
     }
 
     useEffect(() => {
-        let toSearch = true;
-        let index = null;
-        searchResultsRedux.forEach((e, i) =>{
-            if(e[0] === searchInput) {
-                toSearch = false
-                index = i
-            }
-        })
-
-        if (toSearch) {
+        if (searchResultsRedux[searchInput]) {
+            setSearchSuggestion(searchResultsRedux[searchInput]);
+        } else {
             const timer = setTimeout(() => {fetchSearchSuggestions()}, 200);
             return (() => {clearTimeout(timer)});
-        } else {
-            console.log(searchResultsRedux[index][1]);  
-            setSearchSuggestion(searchResultsRedux[index][1]);
         }
     }, [searchInput])
 
