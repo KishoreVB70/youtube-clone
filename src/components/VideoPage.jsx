@@ -16,20 +16,36 @@ const VideoPage = () => {
     const comments =  [
         {
             name: "Kishore",
-            comment: "Hello World",
+            comment: "Hi Tanya",
             replies: [
                 {
-                    name: "Groot",
-                    comment: "I'm Groot",
+                    name: "Akshay",
+                    comment: "Hello Universe",
                     replies: [
-        
                     ]
                 },
                 {
                     name: "Groot",
                     comment: "I'm Groot",
                     replies: [
-        
+                    ]
+                },
+                {
+                    name: "Kishore",
+                    comment: "Hi Tanya",
+                    replies: [
+                        {
+                            name: "Akshay",
+                            comment: "Hello Universe",
+                            replies: [
+                            ]
+                        },
+                        {
+                            name: "Groot",
+                            comment: "I'm Groot",
+                            replies: [
+                            ]
+                        },
                     ]
                 },
             ]
@@ -39,38 +55,29 @@ const VideoPage = () => {
             comment: "Hello Universe",
             replies: [
                 {
-                    name: "Kishore",
-                    comment: "Hello World",
+                    name: "Groot",
+                    comment: "I'm Groot",
                     replies: [
                         {
-                            name: "Groot",
-                            comment: "I'm Groot",
+                            name: "Akshay",
+                            comment: "Hello Universe",
                             replies: [
-                
-                            ]
-                        },
-                        {
-                            name: "Groot",
-                            comment: "I'm Groot",
-                            replies: [
-                
+                                {
+                                    name: "Groot",
+                                    comment: "I'm Groot",
+                                    replies: [
+                                    ]
+                                },  
                             ]
                         },
                     ]
-                },
+                },  
             ]
         },
         {
             name: "Groot",
             comment: "I'm Groot",
             replies: [
-                {
-                    name: "Akshay",
-                    comment: "Hello Universe",
-                    replies: [
-        
-                    ]
-                },
             ]
         },
     ]
@@ -104,7 +111,7 @@ const VideoPage = () => {
         <div  className='flex m-2 h-16 px-3 flex-row  w-full' >
             <div className='flex flex-col w-4/6' >
                 {videoData && <VideoDescription data={videoData} />}
-                <div className='w-full border border-black flex flex-col mt-5'>
+                <div className='w-full  flex flex-col mt-5'>
                     <h1 className='text-xl font-bold' >Comments</h1>
                     <CommentList comments={comments} />
                 </div>

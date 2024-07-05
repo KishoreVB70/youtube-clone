@@ -34,7 +34,7 @@ const VideoDescription = ({data}) => {
                         </div>
                     </button>
                     <button className='h-10 w-12 bg-gray-100 p-2 rounded-r-full border-l border-gray-300' >
-                        <img className='h-5 w-6' src="https://www.iconpacks.net/icons/3/free-icon-thumbs-up-11229.png" alt="dislike-icon" />
+                        <img className='h-5 w-6' src="https://www.iconpacks.net/icons/4/free-icon-thumbs-down-14918.png" alt="dislike-icon" />
                     </button>
                     <button className='h-10 w-20 mx-4 bg-gray-100 p-2 rounded-3xl'>Share</button>
                     <button  className='h-10 w-24 bg-gray-100 p-2 rounded-3xl'>Download</button>
