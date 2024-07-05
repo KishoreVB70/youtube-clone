@@ -1,9 +1,9 @@
 import React, {useState, useEffect } from 'react'
-import Comments from './Comments'
 import SuggestedVideos from './SuggestedVideos'
 import { useSearchParams } from 'react-router-dom'
 import { SINGLE_VIDEO_BASE_API } from '../utils/constants'
 import VideoDescription from './VideoDescription'
+import CommentList from './CommentList'
 
 const VideoPage = () => {
     const [searchParam] = useSearchParams();
@@ -12,6 +12,68 @@ const VideoPage = () => {
     const videoId = searchParam.get("v");
     const videoSrc = `https://www.youtube.com/embed/${videoId}`
     const apikey = process.env.REACT_APP_YOUTUBE_API_KEY
+
+    const comments =  [
+        {
+            name: "Kishore",
+            comment: "Hello World",
+            replies: [
+                {
+                    name: "Groot",
+                    comment: "I'm Groot",
+                    replies: [
+        
+                    ]
+                },
+                {
+                    name: "Groot",
+                    comment: "I'm Groot",
+                    replies: [
+        
+                    ]
+                },
+            ]
+        },
+        {
+            name: "Akshay",
+            comment: "Hello Universe",
+            replies: [
+                {
+                    name: "Kishore",
+                    comment: "Hello World",
+                    replies: [
+                        {
+                            name: "Groot",
+                            comment: "I'm Groot",
+                            replies: [
+                
+                            ]
+                        },
+                        {
+                            name: "Groot",
+                            comment: "I'm Groot",
+                            replies: [
+                
+                            ]
+                        },
+                    ]
+                },
+            ]
+        },
+        {
+            name: "Groot",
+            comment: "I'm Groot",
+            replies: [
+                {
+                    name: "Akshay",
+                    comment: "Hello Universe",
+                    replies: [
+        
+                    ]
+                },
+            ]
+        },
+    ]
 
 
     const getVideoData = async() => {
@@ -22,14 +84,13 @@ const VideoPage = () => {
         setVideoData(data.items[0]);
     }
 
-
     useEffect(() => {
         getVideoData();
     }, [])
 
-  return (
+  return (  
     <div className='flex flex-col w-full h-full' >
-        <div className='h-5/6 w-full'>
+        <div className='h-5/6 w-full mt-16'>
             <iframe 
                 className='h-full w-full'
                 src={videoSrc}
@@ -40,8 +101,14 @@ const VideoPage = () => {
                 allowFullScreen>
             </iframe>
         </div>
-        <div  className='flex m-2 px-3 flex-row h-1/6 w-full' >
-            {videoData && <VideoDescription data={videoData} />}
+        <div  className='flex m-2 h-16 px-3 flex-row  w-full' >
+            <div className='flex flex-col w-4/6' >
+                {videoData && <VideoDescription data={videoData} />}
+                <div className='w-full border border-black flex flex-col mt-5'>
+                    <h1 className='text-xl font-bold' >Comments</h1>
+                    <CommentList comments={comments} />
+                </div>
+            </div>
             {/* <SuggestedVideos /> */}
         </div>
     </div>

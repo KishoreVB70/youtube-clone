@@ -14,7 +14,7 @@ const VideoDescription = ({data}) => {
         likeString = `${(likeCount).toFixed(0)}`
     }
     return (
-        <div className='flex flex-col w-4/6' >
+        <div className='flex flex-col w-full' >
             <h1  className='w-full font-bold text-xl' >{title}</h1>
             <div className='flex flex-row mt-2 justify-between'>
                 <div  className='flex flex-row items-center justify-center '>
