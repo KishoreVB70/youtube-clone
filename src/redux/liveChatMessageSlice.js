@@ -6,7 +6,10 @@ const liveChatMessageSlice = createSlice({
         liveChatMessages: []
     },
     reducers: {
-        addToLiveChat: (state, action) => {state.liveChatMessages.push(action.payload)}
+        addToLiveChat: (state, action) => {
+            state.liveChatMessages.splice(20,1);
+            state.liveChatMessages.unshift(action.payload); 
+        }
     }
 })
 
