@@ -4,6 +4,10 @@ import './App.css';
 import Header from './components/Header';
 import Body from "./components/Body";
 import VideoPage from './components/VideoPage';
+import DemoMemo from './components/DemoMemo';
+import DemoRef from './components/DemoRef';
+import DemoCallback from './components/DemoCallback';
+
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 
 // Hooks
@@ -42,6 +46,15 @@ export const appRouter = createBrowserRouter([
       {
         path: "/watch",
         element: <VideoPage />
+      },
+      {
+        path: "/demo",
+        element:  
+        <>
+         <DemoMemo />
+         <DemoCallback />
+         <DemoRef />
+        </>
       }
     ]
   }
